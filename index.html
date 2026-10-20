@@ -1,0 +1,189 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee8db"><title>Clockwork Acrobat — A three-dimensional study</title><style>
+*{box-sizing:border-box}body{margin:0;background:#eee8db;color:#34473e;font-family:Georgia,serif}main{max-width:1320px;margin:auto;padding:20px 36px 18px}.mast{display:flex;justify-content:space-between;border-bottom:1px solid #d1cdbf;padding-bottom:11px;font:9px system-ui;letter-spacing:1.8px;text-transform:uppercase}.mast b{font-weight:400}.mast span{color:#8b8e7f}header{text-align:center;padding:15px 0 0}.eyebrow{display:none}h1{font-size:clamp(34px,4vw,48px);font-weight:400;letter-spacing:-1.4px;margin:0 0 5px}header p{font-size:13px;color:#7a8171;margin:0}.stage{position:relative;max-width:1200px;margin:0 auto}canvas{display:block;width:100%;height:clamp(550px,72vh,820px);touch-action:none;cursor:grab;outline:none}canvas:active{cursor:grabbing}canvas:focus-visible{outline:1px solid #ad9270;outline-offset:-2px}.view-tools{position:absolute;bottom:5px;left:8px;font:10px system-ui;color:#7c8775}.reset{border:0;background:transparent;color:#5d6b56;font:inherit;min-height:44px;padding:0 2px}.view-tools p{display:none}.wheel{position:absolute;right:8px;bottom:0;width:82px;text-align:center}.wheel svg{display:block;width:82px;height:82px;touch-action:none;overflow:visible}.crank{cursor:grab;outline:none}.crank:active{cursor:grabbing}.focus-ring{fill:none;stroke:transparent}.crank:focus-visible .focus-ring{stroke:#a58e6e;stroke-width:2}.controls{display:flex;align-items:center;justify-content:center;gap:28px;margin:3px 0}.modes{display:flex;gap:4px}.modes button{border:0;background:none;border-radius:24px;padding:9px 19px;font:12px system-ui;min-height:42px;white-space:nowrap;color:#677260}.modes button[aria-pressed=true]{background:#dde3d5;color:#314e3c}.small-controls{display:flex;gap:22px}.small-controls button{border:0;background:none;color:#5e6a56;font:11px system-ui;min-height:44px;padding:6px 0;white-space:nowrap}.sound[aria-pressed=true]{color:#8c5e48}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid #a58e6e;outline-offset:3px}.help{text-align:center;font:10px/1.7 system-ui;color:#8a8e7d;margin:0}.step{border:0;background:none;color:#65765d;font:inherit;min-height:36px;padding:0 8px}.note,footer{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}#fallback{display:none;padding:80px 20px;text-align:center;font:14px/1.6 system-ui}@media(max-width:620px){main{padding:17px 16px}.mast{font-size:8px;letter-spacing:1px}.mast span{max-width:90px;text-align:right}header{padding-top:16px}h1{font-size:clamp(30px,9.7vw,39px);letter-spacing:-1.2px}header p{font-size:12px}canvas{height:clamp(440px,62svh,620px)}.stage{margin:0 -14px}.view-tools{left:15px;bottom:3px}.wheel{right:9px;width:78px}.wheel svg{width:78px;height:78px}.controls{flex-direction:column;gap:0;margin-top:3px}.modes{justify-content:center;width:100%}.modes button{min-height:44px;padding:9px 18px}.small-controls{gap:28px}.help{font-size:9px;max-width:310px;margin:0 auto}.step{min-height:36px}.small-controls button{font-size:10px}}
+</style></head><body><main><div class="mast"><b>✳ &nbsp; The Curious Mechanic</b><span>Tabletop study · No. 01</span></div><header><div class="eyebrow">A hand-powered little spectacle</div><h1>Clockwork Acrobat</h1><p>A turn of your hand. A little moment of wonder.</p></header>
+<section class="stage" aria-label="Three-dimensional automaton"><canvas id="scene" tabindex="0" role="img" aria-label="Three-dimensional wooden acrobat and box. Drag to orbit, arrow keys to rotate the view, Home to reset. The separate brass wheel turns the crank."></canvas><p id="fallback">This three-dimensional study needs WebGL 2. Please open it in a current browser.</p><div class="view-tools"><button id="reset" class="reset">↺ Reset view</button><p>Drag the object to look around.<br>Pinch / scroll to widen the view.</p></div><div class="wheel"><svg viewBox="0 0 120 120"><defs><linearGradient id="gold"><stop stop-color="#8c672f"/><stop offset=".45" stop-color="#e4c57c"/><stop offset="1" stop-color="#ac803b"/></linearGradient><linearGradient id="handle"><stop stop-color="#9d733f"/><stop offset=".45" stop-color="#f2d69f"/><stop offset="1" stop-color="#b18449"/></linearGradient></defs><g id="crank" class="crank" role="slider" tabindex="0" aria-label="Hand crank" aria-valuemin="0" aria-valuemax="359" aria-valuenow="0" aria-describedby="crank-help"><title>Drag this wheel to turn the crank. Arrow keys turn 15 degrees; Shift plus arrow turns 7.5. The object canvas controls only the camera.</title><circle class="focus-ring" cx="60" cy="56" r="49"/><circle cx="60" cy="56" r="46" fill="#e9dfc7" fill-opacity=".65" stroke="#b6a277" stroke-opacity=".6"/><circle cx="60" cy="56" r="37" fill="none" stroke="#a8956c" stroke-opacity=".6" stroke-dasharray="1 5"/><g id="crank-arm"><circle cx="60" cy="56" r="34" fill="#eee5ce" stroke="#b59e72" stroke-width="2"/><circle cx="60" cy="56" r="28" fill="none" stroke="#cbbb98" stroke-width="1" stroke-dasharray="1 4"/><circle cx="60" cy="30" r="5" fill="url(#gold)" stroke="#9b855e" stroke-width="1"/></g><circle cx="60" cy="56" r="7" fill="url(#gold)" stroke="#a28d66"/><path d="M57 56h6" stroke="#8b7958"/></g><text x="60" y="117" text-anchor="middle" fill="#7e8873" font-size="8" font-family="system-ui" letter-spacing="2">CRANK</text></svg></div></section>
+<div class="controls"><div class="modes" role="group" aria-label="Motion pattern"><button data-mode="bow" aria-pressed="true">01 · Bow</button><button data-mode="balance" aria-pressed="false">02 · Balance</button><button data-mode="tumble" aria-pressed="false">03 · Tumble</button></div><div class="small-controls"><button id="casing" aria-expanded="false">⊞ Open the casing</button><button id="sound" class="sound" aria-pressed="false">♪ Sound off</button></div></div><p class="help" id="crank-help">Drag to explore. Turn the dial to perform. <button id="step" class="step">Step ↻</button><span class="sr-only">Focus the object and use arrows to orbit, plus or minus to zoom, Home to reset. Focus the crank dial and use arrows to turn, Shift plus arrows for finer turns.</span></p><p class="note">A three-dimensional wooden study. Stylized mechanisms, entirely in your hands.</p><p id="status" class="sr-only" role="status">Bow selected. Sound off.</p><footer><span>Made of wood &amp; wonder</span><a href="../index.html">The earlier illustrated study ↗</a></footer></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),TAU=Math.PI*2,D=Math.PI/180;
+let phase=0,mode='bow',opened=false;
+const canvas=$('scene'),gl=canvas.getContext('webgl2',{antialias:true,alpha:false});
+if(!gl){$('fallback').style.display='block';canvas.style.display='none';throw Error('WebGL 2 unavailable')}
+const I=()=>[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];
+function mul(a,b){const r=new Array(16).fill(0);for(let c=0;c<4;c++)for(let row=0;row<4;row++)for(let k=0;k<4;k++)r[c*4+row]+=a[k*4+row]*b[c*4+k];return r}
+function T(x,y,z){const m=I();m[12]=x;m[13]=y;m[14]=z;return m}
+function RX(a){const c=Math.cos(a),s=Math.sin(a);return [1,0,0,0,0,c,s,0,0,-s,c,0,0,0,0,1]}
+function RY(a){const c=Math.cos(a),s=Math.sin(a);return [c,0,-s,0,0,1,0,0,s,0,c,0,0,0,0,1]}
+function RZ(a){const c=Math.cos(a),s=Math.sin(a);return [c,s,0,0,-s,c,0,0,0,0,1,0,0,0,0,1]}
+const add=(a,b)=>a.map((v,i)=>v+b[i]),sub=(a,b)=>a.map((v,i)=>v-b[i]),dot=(a,b)=>a.reduce((n,v,i)=>n+v*b[i],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],norm=a=>{const n=Math.hypot(...a);return a.map(x=>x/n)};
+function look(eye,target){const z=norm(sub(eye,target)),x=norm(cross([0,1,0],z)),y=cross(z,x);return [x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-dot(x,eye),-dot(y,eye),-dot(z,eye),1]}
+function perspective(fov,aspect,near,far){const f=1/Math.tan(fov/2);return [f/aspect,0,0,0,0,f,0,0,0,0,(far+near)/(near-far),-1,0,0,2*far*near/(near-far),0]}
+function ortho(l,r,b,t,n,f){return [2/(r-l),0,0,0,0,2/(t-b),0,0,0,0,-2/(f-n),0,-(r+l)/(r-l),-(t+b)/(t-b),-(f+n)/(f-n),1]}
+function program(vs,fs){function shader(type,s){const x=gl.createShader(type);gl.shaderSource(x,s);gl.compileShader(x);if(!gl.getShaderParameter(x,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(x));return x}const p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,vs));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(p));return p}
+const vertex=`#version 300 es
+layout(location=0) in vec3 aPosition;layout(location=1) in vec3 aNormal;layout(location=2) in vec2 aUV;uniform mat4 uModel,uVP,uLightVP;out vec3 vWorld,vNormal,vLocal;out vec2 vUV;out vec4 vShadow;void main(){vec4 w=uModel*vec4(aPosition,1);vWorld=w.xyz;vLocal=aPosition;vNormal=normalize(transpose(inverse(mat3(uModel)))*aNormal);vUV=aUV;vShadow=uLightVP*w;gl_Position=uVP*w;}`;
+const fragment=`#version 300 es
+precision highp float;in vec3 vWorld,vNormal,vLocal;in vec2 vUV;in vec4 vShadow;uniform vec3 uColor,uEye;uniform int uMaterial;uniform sampler2D uShadow,uLabel;out vec4 outColor;float shade(){vec3 p=vShadow.xyz/vShadow.w*.5+.5;if(any(lessThan(p,vec3(0)))||any(greaterThan(p,vec3(1))))return 1.;float total=0.;float bias=max(.0006,.0018*(1.-dot(normalize(vNormal),normalize(vec3(-3,9,5)))));for(int x=-2;x<=2;x++)for(int y=-2;y<=2;y++){float d=texture(uShadow,p.xy+vec2(x,y)*3.0/1024.).r;total+=p.z-bias<=d?1.:.48;}return total/25.;}float hash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}float noise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}void main(){vec3 n=normalize(vNormal),light=normalize(vec3(-3,9,5)),view=normalize(uEye-vWorld);vec3 color=uColor;if(uMaterial==0||uMaterial==1){float grain=noise(vec3(vLocal.x*2.,vLocal.y*25.,vLocal.z*3.));float fine=noise(vLocal*vec3(6.,70.,4.));color*=.99+grain*.016+fine*.006;}if(uMaterial==10){float stripe=smoothstep(.032,.036,mod(vLocal.y+.025,.12));color=mix(vec3(.91,.86,.75),uColor,stripe);}if(uMaterial==9)color=texture(uLabel,vUV).rgb;float diffuse=max(0.,dot(n,light)),rim=max(0.,dot(n,normalize(vec3(3,3,-4))))*.12;float spec=pow(max(0.,dot(reflect(-light,n),view)),uMaterial==4?36.:23.)*(uMaterial==4?.12:.020);float shadow=shade();if(uMaterial==8){outColor=vec4(mix(vec3(.933,.91,.858),vec3(.75,.70,.60),(1.-shadow)*.18),1.);return;}color=color*(.60+diffuse*.45*shadow+rim)+vec3(spec*shadow);float fog=1.-exp(-.002*pow(length(uEye-vWorld),2.));color=mix(color,vec3(.933,.91,.858),fog*.22);outColor=vec4(color,1.);}`;
+const shadowProgram=program(`#version 300 es\nlayout(location=0) in vec3 aPosition;uniform mat4 uModel,uVP;void main(){gl_Position=uVP*uModel*vec4(aPosition,1);}`,`#version 300 es\nprecision highp float;void main(){}`),mainProgram=program(vertex,fragment);
+const uni=(p,n)=>gl.getUniformLocation(p,n),U={};for(const n of ['uModel','uVP','uLightVP','uColor','uEye','uMaterial','uShadow','uLabel'])U[n]=uni(mainProgram,n);const SU={m:uni(shadowProgram,'uModel'),vp:uni(shadowProgram,'uVP')};
+const cache=new Map();function geometry(key,build){if(cache.has(key))return cache.get(key);const v=[],indices=[];function quad(points,n,uvs=[[0,0],[1,0],[1,1],[0,1]]){const start=v.length/8;points.forEach((p,i)=>v.push(...p,...n,...uvs[i]));indices.push(start,start+1,start+2,start,start+2,start+3)}build(v,indices,quad);const vao=gl.createVertexArray();gl.bindVertexArray(vao);gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(v),gl.STATIC_DRAW);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices),gl.STATIC_DRAW);for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,i===2?2:3,gl.FLOAT,false,32,i===0?0:i===1?12:24)}const mins=[Infinity,Infinity,Infinity],maxs=[-Infinity,-Infinity,-Infinity];for(let i=0;i<v.length;i+=8)for(let j=0;j<3;j++){mins[j]=Math.min(mins[j],v[i+j]);maxs[j]=Math.max(maxs[j],v[i+j])}const bounds=[];for(const x of [mins[0],maxs[0]])for(const y of [mins[1],maxs[1]])for(const z of [mins[2],maxs[2]])bounds.push([x,y,z]);const g={vao,count:indices.length,bounds};cache.set(key,g);return g}
+function box(w,h,d,b=.02){return geometry(`b${w},${h},${d},${b}`,(v,idx)=>{const half=[w/2,h/2,d/2];for(const [normal,u,up]of [[[0,0,1],[1,0,0],[0,1,0]],[[0,0,-1],[-1,0,0],[0,1,0]],[[1,0,0],[0,0,-1],[0,1,0]],[[-1,0,0],[0,0,1],[0,1,0]],[[0,1,0],[1,0,0],[0,0,-1]],[[0,-1,0],[1,0,0],[0,0,1]]]){const hn=dot(normal.map(Math.abs),half),hu=dot(u.map(Math.abs),half),hv=dot(up.map(Math.abs),half),us=[-hu,-hu+b,0,hu-b,hu],vs=[-hv,-hv+b,0,hv-b,hv],start=v.length/8;for(const y of vs)for(const x of us){const p=normal.map((a,i)=>a*hn+u[i]*x+up[i]*y),inner=p.map((a,i)=>Math.max(-half[i]+b,Math.min(half[i]-b,a))),n=norm(sub(p,inner)),q=add(inner,n.map(a=>a*b));v.push(...q,...n,(x/hu+1)/2,(y/hv+1)/2)}for(let y=0;y<4;y++)for(let x=0;x<4;x++){let a=start+y*5+x;idx.push(a,a+1,a+6,a,a+6,a+5)}}})}
+function cylinder(r,h,n=20){return geometry(`c${r},${h},${n}`,(v,idx,q)=>{for(let i=0;i<n;i++){const a=i*TAU/n,b=(i+1)*TAU/n,A=[r*Math.cos(a),r*Math.sin(a)],B=[r*Math.cos(b),r*Math.sin(b)],normal=[Math.cos((a+b)/2),0,Math.sin((a+b)/2)];q([[A[0],-h/2,A[1]],[A[0],h/2,A[1]],[B[0],h/2,B[1]],[B[0],-h/2,B[1]]],normal);q([[0,h/2,0],[B[0],h/2,B[1]],[A[0],h/2,A[1]],[0,h/2,0]],[0,1,0]);q([[0,-h/2,0],[A[0],-h/2,A[1]],[B[0],-h/2,B[1]],[0,-h/2,0]],[0,-1,0])}})}
+function ring(ro,ri,h,n=36){return geometry(`r${ro},${ri},${h}`,(v,idx,q)=>{for(let i=0;i<n;i++){let a=i*TAU/n,b=(i+1)*TAU/n;const p=(r,y,t)=>[r*Math.cos(t),y,r*Math.sin(t)];q([p(ro,h/2,a),p(ro,h/2,b),p(ri,h/2,b),p(ri,h/2,a)],[0,1,0]);q([p(ro,-h/2,b),p(ro,-h/2,a),p(ri,-h/2,a),p(ri,-h/2,b)],[0,-1,0]);q([p(ro,-h/2,a),p(ro,h/2,a),p(ro,h/2,b),p(ro,-h/2,b)],[Math.cos((a+b)/2),0,Math.sin((a+b)/2)]);q([p(ri,-h/2,b),p(ri,h/2,b),p(ri,h/2,a),p(ri,-h/2,a)],[-Math.cos((a+b)/2),0,-Math.sin((a+b)/2)])}})}
+function sphere(rx,ry=rx,rz=rx){return geometry(`s${rx},${ry},${rz}`,(v,idx)=>{const lat=12,lon=20;for(let i=0;i<=lat;i++)for(let j=0;j<=lon;j++){let a=i*Math.PI/lat,b=j*TAU/lon,p=[rx*Math.sin(a)*Math.cos(b),ry*Math.cos(a),rz*Math.sin(a)*Math.sin(b)],normal=norm([p[0]/rx**2,p[1]/ry**2,p[2]/rz**2]);v.push(...p,...normal,j/lon,i/lat)}for(let i=0;i<lat;i++)for(let j=0;j<lon;j++){let a=i*(lon+1)+j;idx.push(a,a+lon+2,a+lon+1,a,a+1,a+lon+2)}})}
+const ground=geometry('ground',(v,i,q)=>q([[-10,0,10],[10,0,10],[10,0,-10],[-10,0,-10]],[0,1,0]));const labelGeo=geometry('label',(v,i,q)=>q([[-.42,-.14,0],[.42,-.14,0],[.42,.14,0],[-.42,.14,0]],[0,0,1],[[0,1],[1,1],[1,0],[0,0]]));
+const labelCanvas=document.createElement('canvas');labelCanvas.width=512;labelCanvas.height=180;const lc=labelCanvas.getContext('2d');lc.fillStyle='#e3d9bb';lc.fillRect(0,0,512,180);lc.strokeStyle='#705b35';lc.lineWidth=5;lc.strokeRect(10,10,492,160);lc.fillStyle='#443c29';lc.textAlign='center';lc.font='36px Georgia';lc.fillText('THE ACROBAT',256,82);lc.font='15px Georgia';lc.fillText('No. 01',256,126);for(const x of [25,487])for(const y of [25,155]){lc.beginPath();lc.arc(x,y,5,0,TAU);lc.fill()}
+const label=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,label);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,labelCanvas);gl.generateMipmap(gl.TEXTURE_2D);
+const depth=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,depth);gl.texImage2D(gl.TEXTURE_2D,0,gl.DEPTH_COMPONENT24,1024,1024,0,gl.DEPTH_COMPONENT,gl.UNSIGNED_INT,null);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);const framebuffer=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,framebuffer);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.TEXTURE_2D,depth,0);gl.drawBuffers([gl.NONE]);gl.readBuffer(gl.NONE);if(gl.checkFramebufferStatus(gl.FRAMEBUFFER)!==gl.FRAMEBUFFER_COMPLETE)throw Error('Shadow framebuffer unavailable');gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+const lightVP=mul(ortho(-5,5,-5,5,.1,20),look([-3,9,5],[0,1.2,0]));
+const colors={wood:[.71,.59,.43],edge:[.78,.66,.50],light:[.89,.78,.60],green:[.48,.59,.49],red:[.74,.48,.38],cream:[.91,.86,.75],brass:[.70,.60,.39],dark:[.34,.39,.31],black:[.10,.085,.055]};
+let objects=[],fitting=false;function mesh(g,m,c,type=0){objects.push({g,m,fit:fitting,c:typeof c==='string'?colors[c]:c,type})}function block(m,x,y,z,w,h,d,c='wood',type=0,b=.02){mesh(box(w,h,d,Math.min(b,w/3,h/3,d/3)),mul(m,T(x,y,z)),c,type)}function ball(m,x,y,z,r,c='brass',type=4,ry=r,rz=r){mesh(sphere(r,ry,rz),mul(m,T(x,y,z)),c,type)}
+function rod(a,b,r=.025,c='brass',type=4,parent=I()){const y=norm(sub(b,a)),ref=Math.abs(y[1])>.95?[0,0,1]:[0,1,0],x=norm(cross(y,ref)),z=cross(x,y),length=Math.hypot(...sub(b,a)),mid=a.map((n,i)=>(n+b[i])/2);mesh(cylinder(r,1),mul(parent,[...x,0,...y.map(n=>n*length),0,...z,0,...mid,1]),c,type)}
+function peg(m,x,y,z){const p=mul(m,T(x,y,z));mesh(cylinder(.075,.045),mul(p,RX(Math.PI/2)),'brass',4);mesh(cylinder(.025,.05),mul(p,RX(Math.PI/2)),'dark',5)}
+function gear(x,angle){const m=mul(T(x,.52,.42),RZ(angle));mesh(ring(.24,.16,.075),mul(m,RX(Math.PI/2)),'brass',4);mesh(cylinder(.075,.10),mul(m,RX(Math.PI/2)),'brass',4);for(let i=0;i<4;i++)block(mul(m,RZ(i*Math.PI/2)),0,.11,0,.036,.22,.075,'brass',4,.005);for(let i=0;i<18;i++){const g=mul(m,RZ(i*TAU/18));block(g,0,.25,0,.060,.065,.072,'brass',4,.005)}}
+
+const neutral={lift:0,spin:0,lean:0,a1:6,a2:-12,e1:-18,e2:25,l1:-7,l2:7,k1:14,k2:-14,head:0};
+const poses={
+ bow:[
+ [0,{}],[.12,{lean:7,a1:0,a2:0,head:-5}],
+ [.39,{lean:-58,a1:-20,a2:-4,e1:-140,e2:15,head:16}],
+ [.56,{lean:-58,a1:-20,a2:-4,e1:-140,e2:15,head:16}],
+ [.83,{lean:5,a1:5,a2:-8,e1:-10,head:-5}],[1,{}]],
+ balance:[
+ [0,{}],[.12,{lean:-7,a1:28,a2:-34,e1:-35,e2:35,head:5}],
+ [.36,{lean:5,a1:68,a2:-78,e1:-22,e2:32,l1:-4,k1:8,l2:-60,k2:95,head:-8}],
+ [.65,{lean:5,a1:68,a2:-78,e1:-22,e2:32,l1:-4,k1:8,l2:-60,k2:95,head:-8}],
+ [.83,{lean:-4,a1:38,a2:-37,e1:-18,e2:18,l2:-20,k2:26,head:4}],[1,{}]],
+ tumble:[
+ [0,{}],[.16,{lift:-2,spin:14,lean:5,a1:-18,a2:20,e1:-40,e2:40,l1:15,l2:-15,k1:-35,k2:35,head:8}],
+ [.30,{lift:36,spin:-38,a1:55,a2:-60,e1:-30,e2:30,l1:50,l2:-50,k1:-80,k2:80,head:8}],
+ [.46,{lift:36,spin:-157,a1:55,a2:-60,e1:-35,e2:35,l1:65,l2:-65,k1:-90,k2:90,head:0}],
+ [.61,{lift:34,spin:-290,a1:45,a2:-50,e1:-25,e2:25,l1:45,l2:-45,k1:-65,k2:65,head:-4}],
+ [.78,{lift:6,spin:-367,a1:38,a2:-40,e1:-25,e2:25,l1:0,l2:0,k1:0,k2:0,head:-7}],
+ [.91,{spin:-360,lean:-3,a1:6,a2:-6,head:3}],[1,{spin:-360}]]
+};
+function poseAt(p){const keys=poses[mode];let i=0;while(i<keys.length-2&&p>keys[i+1][0])i++;const [start,from]=keys[i],[end,to]=keys[i+1],u=(p-start)/(end-start),ease=u*u*(3-2*u),out={};for(const k in neutral){const a=from[k]??neutral[k],b=to[k]??neutral[k];out[k]=a+(b-a)*ease}return out;}
+
+function limb(parent,x,angle,elbow,color='light',abduct=0){const shoulder=mul(mul(mul(parent,T(x,.43,0)),RZ(angle)),RX(abduct));mesh(cylinder(.068,.40),mul(shoulder,T(0,-.20,0)),color,1);peg(shoulder,0,0,.076);const fore=mul(mul(shoulder,T(0,-.40,0)),RZ(elbow));mesh(cylinder(.061,.35),mul(fore,T(0,-.175,0)),'light',1);peg(fore,0,0,.071);ball(fore,0,-.38,.016,.079,'light',1,.092,.065)}
+function bowArm(parent,amount){const b=Math.max(0,Math.min(1,amount)),u=Math.min(1,b/.45),z=.03+.19*u*u*(3-2*u),S=[-.245,.43,0],H=[-.22+.20*b,-.31+.64*b,z],delta=sub(H,S),distance=Math.hypot(...delta),dir=norm(delta),ref=[-1,-.3,.2],perp=norm(sub(ref,dir.map(v=>v*dot(ref,dir)))),along=(.40**2-.35**2+distance**2)/(2*distance),height=Math.sqrt(Math.max(0,.40**2-along**2)),E=S.map((v,i)=>v+dir[i]*along+perp[i]*height);rod(S,E,.068,'light',1,parent);rod(E,H,.061,'light',1,parent);peg(parent,...S.map((v,i)=>i===2?v+.07:v));peg(parent,...E.map((v,i)=>i===2?v+.07:v));ball(parent,...H,.079,'light',1,.092,.065)}
+function leg(parent,x,angle,knee,side){const base=mul(mul(mul(parent,T(x,0,0)),RZ(side)),RX(angle));mesh(cylinder(.084,.42),mul(base,T(0,-.21,0)),'green',2);peg(base,0,0,.078);const shin=mul(mul(base,T(0,-.42,0)),RX(knee));mesh(cylinder(.065,.38),mul(shin,T(0,-.19,0)),'light',1);peg(shin,0,0,.073);block(shin,0,-.407,.065,.17,.115,.27,'red',3,.04);block(shin,0,-.450,.065,.173,.022,.275,'edge',0,.006)}
+function mechanism(pose,spin,hip){const a=-phase+Math.PI/18,E=[-.28+.15*Math.cos(a),.52+.15*Math.sin(a),.46],P=[-.28,E[1]+Math.sqrt(.34**2-(E[0]+.28)**2),.46],out=spin-pose.lean*D,L=[.38,hip+.15*Math.cos(out),.15*Math.sin(out)],delta=sub(L,P),distance=Math.hypot(...delta),perp=norm([0,delta[2],-delta[1]]),height=Math.sqrt(Math.max(0,.95**2-distance**2/4)),J=P.map((v,i)=>v+delta[i]/2+perp[i]*height);return {E,P,L,J,distance}}
+function buildScene(){objects=[];fitting=false;mesh(ground,I(),[.925,.901,.843],8);const root=I();
+ block(root,0,.14,0,3.10,.12,1.65,'edge');block(root,0,.215,0,2.92,.035,1.45,'green',2);
+ for(const x of [-1.24,1.24])for(const z of [-.59,.59]){block(root,x,.055,z,.24,.11,.24,'wood');block(root,x,.017,z,.24,.018,.24,'brass',4,.004)}
+ block(root,0,.525,-.72,2.93,.63,.085,'wood');block(root,-1.44,.525,0,.085,.63,1.45,'wood');
+ if(!opened){block(root,0,.525,.72,2.93,.63,.085,'wood');block(root,1.44,.525,0,.085,.63,1.45,'wood');block(root,0,.50,.774,.96,.32,.020,'cream',2,.012);mesh(labelGeo,T(0,.50,.787),'brass',9)}
+ for(const x of [-1.40,1.40])for(const z of [-.69,.69]){block(root,x,.53,z,.105,.69,.105,'edge');for(const y of [.28,.77])ball(root,x,y,z+.055,.018,'brass',4)}
+ // A bounded, trimmed guide opening replaces the split cabinet roof.
+ block(root,-1.02,.90,0,.98,.10,1.65,'edge');block(root,.74,.90,0,1.54,.10,1.65,'edge');block(root,-.28,.90,.6875,.50,.10,.275,'edge');block(root,-.28,.90,-.4875,.50,.10,.675,'edge');
+ for(const x of [-.54,-.02])block(root,x,.958,.20,.026,.018,.73,'cream',2,.004);for(const z of [-.16,.56])block(root,-.28,.958,z,.54,.018,.026,'cream',2,.004);
+ const p=phase/TAU-Math.floor(phase/TAU),pose=poseAt(p),spin=(pose.spin-(mode==='tumble'?Math.floor(phase/TAU)*360:0))*D,hip=1.84+pose.lift*.0094;
+ rod([.02,.94,-.14],[.02,hip,-.14],.024,'brass');mesh(cylinder(.038,.40),T(.02,1.14,-.14),'light',1);rod([-.10,hip,0],[.49,hip,0],.034,'brass');
+ fitting=true;const waist=mul(T(.22,hip,0),RX(spin)),upper=mul(waist,RX(-pose.lean*D));
+ block(upper,0,.27,0,.42,.52,.29,'red',10,.065);block(waist,0,0,0,.42,.13,.30,'green',2,.045);
+ mesh(cylinder(.052,.10),mul(upper,T(0,.58,0)),'light',1);const head=mul(mul(upper,T(0,.74,0)),RX(-pose.head*D));ball(head,0,0,0,.185,'light',1,.20,.17);
+ for(const x of [-.178,.178])ball(head,x,-.012,0,.038,'light',1,.045,.035);
+ for(const x of [-.065,.065]){ball(head,x,.020,.158,.017,'black',5,.024,.012);rod([x-.018,.066,.148],[x+.015,.071,.148],.005,'edge',0);ball(head,x*1.58,-.045,.145,.027,'red',3,.017,.008)}ball(head,0,-.013,.17,.023,'light',1,.028,.026);
+ for(let i=0;i<10;i++){const a=Math.PI+i*Math.PI/10,b=Math.PI+(i+1)*Math.PI/10;rod([Math.cos(a)*.058,-.050+Math.sin(a)*.027,.165],[Math.cos(b)*.058,-.050+Math.sin(b)*.027,.165],.0045,'edge',0)}
+ mesh(cylinder(.19,.035),mul(head,T(0,.183,0)),'green',2);ball(head,.009,.255,-.015,.16,'green',2,.10,.16);ball(head,.055,.365,-.015,.046,'red',3);
+ if(mode==='bow')bowArm(upper,-pose.lean/58);else limb(upper,-.245,-pose.a1*D,-pose.e1*D,'light',.035);limb(upper,.245,-pose.a2*D,-pose.e2*D,'light',-.025);
+ leg(waist,-.105,-pose.l1*D,-pose.k1*D,-.035);leg(waist,.105,-pose.l2*D,-pose.k2*D,mode==='balance'?Math.abs(pose.l2)/72*.30:.035);
+ fitting=false;gear(.28,phase);gear(-.28,-phase+Math.PI/18);rod([.28,.52,.30],[1.82,.52,.30],.035,'brass');rod([.28,.52,.30],[.28,.52,.48],.035,'brass');ball(root,.28,.52,.30,.065,'brass',4);
+ for(const x of [1.50,1.56])mesh(ring(.095,.044,.032),mul(T(x,.52,.30),RZ(Math.PI/2)),'brass',4);
+ const handle=[1.83,.52+Math.cos(phase)*.27,.30+Math.sin(phase)*.27];rod([1.83,.52,.30],handle,.028,'brass');rod(handle,[2.01,handle[1],handle[2]],.060,'light',1);
+ const {E,P,L,J}=mechanism(pose,spin,hip);fitting=true;rod(E,P,.020,'brass');rod(P,J,.020,'brass');rod(J,L,.020,'brass');rod([.38,hip,0],L,.025,'brass');for(const point of [E,P,J,L])ball(root,...point,.033,'brass',4);
+}
+let yaw=.40,pitch=.25,zoom=1,shadowDirty=true,queued=false,fitCloud=null;
+const viewTarget=[.03,1.36,0];
+function measureFit(){const saved={phase,mode,opened},cloud=[];const addBounds=(lo,hi)=>{for(const x of [lo[0],hi[0]])for(const y of [lo[1],hi[1]])for(const z of [lo[2],hi[2]])cloud.push(x,y,z)};addBounds([-1.58,0,-.84],[1.58,.96,.84]);addBounds([1.45,.15,-.08],[2.08,.95,.73]);opened=false;for(const name of ['bow','balance','tumble']){mode=name;for(let i=0;i<32;i++){phase=i*TAU/32;buildScene();for(const o of objects){if(!o.fit)continue;for(const [x,y,z]of o.g.bounds){const m=o.m;cloud.push(m[0]*x+m[4]*y+m[8]*z+m[12],m[1]*x+m[5]*y+m[9]*z+m[13],m[2]*x+m[6]*y+m[10]*z+m[14])}}}}phase=saved.phase;mode=saved.mode;opened=saved.opened;fitCloud=new Float32Array(cloud)}
+function fitDistance(aspect){const direction=[Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch)],right=norm(cross([0,1,0],direction)),up=cross(direction,right),tan=Math.tan(18*D);let distance=4;for(let i=0;i<fitCloud.length;i+=3){const x=fitCloud[i]-viewTarget[0],y=fitCloud[i+1]-viewTarget[1],z=fitCloud[i+2]-viewTarget[2],sx=x*right[0]+y*right[1]+z*right[2],sy=x*up[0]+y*up[1]+z*up[2],depth=x*direction[0]+y*direction[1]+z*direction[2];distance=Math.max(distance,depth+Math.max(Math.abs(sx)/(tan*aspect*.94),Math.abs(sy)/(tan*.88)))}return distance}
+
+function render(){queued=false;buildScene();gl.enable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);if(shadowDirty){gl.bindFramebuffer(gl.FRAMEBUFFER,framebuffer);gl.viewport(0,0,1024,1024);gl.clear(gl.DEPTH_BUFFER_BIT);gl.useProgram(shadowProgram);gl.uniformMatrix4fv(SU.vp,false,lightVP);for(const o of objects){if(o.type===8)continue;gl.uniformMatrix4fv(SU.m,false,o.m);gl.bindVertexArray(o.g.vao);gl.drawElements(gl.TRIANGLES,o.g.count,gl.UNSIGNED_SHORT,0)}shadowDirty=false}
+ gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(.933,.91,.858,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(mainProgram);
+ const aspect=canvas.width/canvas.height,distance=fitDistance(aspect)*zoom,target=viewTarget,eye=[target[0]+distance*Math.sin(yaw)*Math.cos(pitch),target[1]+distance*Math.sin(pitch),target[2]+distance*Math.cos(yaw)*Math.cos(pitch)],projection=perspective(36*D,aspect,.1,50);projection[9]=-.10;const vp=mul(projection,look(eye,target));
+ gl.uniformMatrix4fv(U.uVP,false,vp);gl.uniformMatrix4fv(U.uLightVP,false,lightVP);gl.uniform3fv(U.uEye,eye);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,depth);gl.uniform1i(U.uShadow,0);gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,label);gl.uniform1i(U.uLabel,1);
+ for(const o of objects){gl.uniformMatrix4fv(U.uModel,false,o.m);gl.uniform3fv(U.uColor,o.c);gl.uniform1i(U.uMaterial,o.type);gl.bindVertexArray(o.g.vao);gl.drawElements(gl.TRIANGLES,o.g.count,gl.UNSIGNED_SHORT,0)}
+}
+function requestRender(changed=false){shadowDirty ||=changed;if(!queued){queued=true;requestAnimationFrame(render)}}
+let orbit=null,crankPointer=null,lastAngle=null,pinchDistance=null;const orbitPointers=new Map();
+function releaseOrbit(e){if(e){if(!orbitPointers.has(e.pointerId))return;orbitPointers.delete(e.pointerId);if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId)}else{const ids=[...orbitPointers.keys()];orbitPointers.clear();for(const id of ids)if(canvas.hasPointerCapture(id))canvas.releasePointerCapture(id)}pinchDistance=null;const remaining=[...orbitPointers.entries()];orbit=remaining.length===1?{id:remaining[0][0],...remaining[0][1]}:null}
+canvas.addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();orbitPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});canvas.setPointerCapture(e.pointerId);canvas.focus({preventScroll:true});if(orbitPointers.size===1)orbit={id:e.pointerId,x:e.clientX,y:e.clientY};else{orbit=null;const points=[...orbitPointers.values()];pinchDistance=Math.hypot(points[0].x-points[1].x,points[0].y-points[1].y)}});
+canvas.addEventListener('pointermove',e=>{if(!orbitPointers.has(e.pointerId))return;orbitPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(orbitPointers.size>1){const points=[...orbitPointers.values()],distance=Math.hypot(points[0].x-points[1].x,points[0].y-points[1].y);if(pinchDistance&&distance>5)zoom=Math.max(1,Math.min(1.35,zoom*pinchDistance/distance));pinchDistance=distance;requestRender();return}if(!orbit||e.pointerId!==orbit.id)return;yaw-=(e.clientX-orbit.x)*.008;pitch=Math.max(-.04,Math.min(1.25,pitch+(e.clientY-orbit.y)*.006));orbit.x=e.clientX;orbit.y=e.clientY;requestRender()});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(event,releaseOrbit);
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(1,Math.min(1.35,zoom*Math.exp(e.deltaY*.001)));requestRender()},{passive:false});
+function resetView(){releaseOrbit();yaw=.40;pitch=.25;zoom=1;requestRender();$('status').textContent='View reset.'}
+$('reset').addEventListener('click',resetView);canvas.addEventListener('keydown',e=>{if(['+','=','-','_'].includes(e.key)){e.preventDefault();zoom=Math.max(1,Math.min(1.35,zoom*(e.key==='-'||e.key==='_'?1.1:1/1.1)));requestRender();return}if(e.key==='Home'){e.preventDefault();resetView();return}const keys={ArrowLeft:[.15,0],ArrowRight:[-.15,0],ArrowUp:[0,.10],ArrowDown:[0,-.10]};if(keys[e.key]){e.preventDefault();yaw+=keys[e.key][0];pitch=Math.max(-.04,Math.min(1.25,pitch+keys[e.key][1]));requestRender()}});
+function resize(){releaseOrbit();endCrank();const r=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio,1.6);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);requestRender()}
+window.addEventListener('resize',resize);window.addEventListener('blur',()=>{releaseOrbit();endCrank()});
+
+// Original cyclic phrase. The barrel advances only when the crank travels.
+const MUSIC_NOTES=[74,81,78,81,76,83,79,83,78,86,81,78,76,85,81,76,74,78,81,86,83,79,76,81,78,74,76,73,74,81,78,74];
+const MUSIC_STEP=Math.PI/8;
+function createMusicState(){return {travel:0,cell:0,lastTurn:-Infinity,lastPlayed:-Infinity,lastPosition:0,lastMidi:null};}
+function musicGate(state,delta,time){
+ const old=state.cell,dt=time-state.lastTurn;state.lastTurn=time;state.travel+=delta;
+ state.cell=Math.trunc(state.travel/MUSIC_STEP+Math.sign(state.travel)*1e-8);
+ if(state.cell===old||time-state.lastPlayed<.125||Math.abs(state.travel-state.lastPosition)<MUSIC_STEP*.55)return null;
+ const index=((state.cell%MUSIC_NOTES.length)+MUSIC_NOTES.length)%MUSIC_NOTES.length;
+ if(MUSIC_NOTES[index]===state.lastMidi&&time-state.lastPlayed<.28)return null;
+ state.lastPlayed=time;state.lastPosition=state.travel;state.lastMidi=MUSIC_NOTES[index];
+ const speed=dt>0&&dt<.7?Math.abs(delta)/Math.max(.02,dt):1;
+ return {midi:MUSIC_NOTES[index],index,time,level:.065+Math.min(.045,speed*.015)};
+}
+function createMusicVoice(context,destination,midi,when,level,onFinish=()=>{}){
+ const nodes=[],frequency=440*Math.pow(2,(midi-69)/12);let remaining=3;
+ for(const [ratio,weight,decay] of [[1,1,.68],[2.76,.16,.34],[5.4,.045,.19]]){
+  const oscillator=context.createOscillator(),envelope=context.createGain();
+  oscillator.type='sine';oscillator.frequency.setValueAtTime(frequency*ratio,when);
+  envelope.gain.setValueAtTime(.00001,when);envelope.gain.linearRampToValueAtTime(level*weight,when+.004);envelope.gain.exponentialRampToValueAtTime(.00001,when+decay);
+  oscillator.connect(envelope);envelope.connect(destination);oscillator.start(when);oscillator.stop(when+decay+.015);
+  oscillator.onended=()=>{oscillator.disconnect();envelope.disconnect();if(--remaining===0)onFinish()};nodes.push([oscillator,envelope]);
+ }
+ return {stop(){for(const [oscillator,envelope] of nodes){try{oscillator.stop()}catch{}oscillator.disconnect();envelope.disconnect()}}};
+}
+const music={enabled:false,allowed:false,context:null,master:null,voices:new Set(),state:createMusicState()};
+function updateSound(){
+ const button=$('sound');button.setAttribute('aria-pressed',String(music.enabled));button.textContent=music.enabled?'♪ Sound on':'♪ Sound off';
+ button.title=music.enabled?'An original melody follows the crank. Turn to play; click to mute.':'Enable a quiet, original music-box melody. Nothing plays until you turn.';
+}
+function pauseMusic(){
+ music.allowed=false;for(const voice of music.voices)voice.stop();music.voices.clear();
+ if(music.context&&music.context.state!=='closed')music.context.suspend().catch(()=>{});
+}
+function unlockMusic(){
+ if(!music.enabled||document.hidden)return;
+ try{
+  if(!music.context||music.context.state==='closed'){
+   const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw Error('Web Audio unavailable');
+   music.context=new Audio();music.master=music.context.createGain();music.master.gain.value=.22;music.master.connect(music.context.destination);
+  }
+  music.allowed=true;
+  music.context.resume().then(()=>{if(!music.enabled||!music.allowed||document.hidden)music.context.suspend().catch(()=>{})}).catch(()=>{music.enabled=false;pauseMusic();updateSound();$('status').textContent='Sound is paused. Use the Sound toggle to try again.';});
+ }catch{music.enabled=false;pauseMusic();updateSound();$('sound').disabled=true;$('sound').textContent='Sound unavailable';$('status').textContent='This browser does not support music-box sound. The crank still works.';}
+}
+function crankMusic(delta){
+ const note=musicGate(music.state,delta,performance.now()/1000);
+ if(!note||!music.enabled||!music.allowed||document.hidden||music.context?.state!=='running')return;
+ let voice;voice=createMusicVoice(music.context,music.master,note.midi,music.context.currentTime+.003,note.level,()=>music.voices.delete(voice));music.voices.add(voice);
+}
+$('sound').addEventListener('click',()=>{
+ music.enabled=!music.enabled;music.state.lastPlayed=-Infinity;music.state.lastPosition=music.state.travel;music.state.lastMidi=null;
+ if(music.enabled)unlockMusic();else pauseMusic();updateSound();$('status').textContent=music.enabled?'Music box on. Turn the crank to play.':'Music box off.';
+});
+window.addEventListener('blur',pauseMusic);window.addEventListener('pagehide',pauseMusic);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseMusic()});
+const motionPreference=matchMedia('(prefers-reduced-motion:reduce)');motionPreference.addEventListener('change',pauseMusic);
+
+
+function turn(delta){phase+=delta;const degrees=Math.round((phase*180/Math.PI%360+360)%360)%360;$('crank').setAttribute('aria-valuenow',degrees);$('crank').setAttribute('aria-valuetext',`${degrees} degrees, ${mode} motion`);$('crank-arm').setAttribute('transform',`rotate(${phase*180/Math.PI} 60 56)`);crankMusic(delta);requestRender(true)}
+const crank=$('crank');function crankAngle(e){const svg=crank.ownerSVGElement,p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;const q=p.matrixTransform(svg.getScreenCTM().inverse());return Math.hypot(q.x-60,q.y-56)<12?null:Math.atan2(q.y-56,q.x-60)}
+function endCrank(e){if(crankPointer===null||e&&e.pointerId!==crankPointer)return;const id=crankPointer;crankPointer=null;lastAngle=null;if(crank.hasPointerCapture(id))crank.releasePointerCapture(id)}
+crank.addEventListener('pointerdown',e=>{if(crankPointer!==null||e.button!==0)return;e.preventDefault();unlockMusic();crankPointer=e.pointerId;lastAngle=crankAngle(e);crank.setPointerCapture(e.pointerId);crank.focus({preventScroll:true})});
+crank.addEventListener('pointermove',e=>{if(e.pointerId!==crankPointer)return;const a=crankAngle(e);if(a===null){lastAngle=null;return}if(lastAngle!==null){let delta=a-lastAngle;if(delta>Math.PI)delta-=TAU;if(delta< -Math.PI)delta+=TAU;turn(delta)}lastAngle=a});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])crank.addEventListener(event,endCrank);
+crank.addEventListener('keydown',e=>{const keys={ArrowRight:Math.PI/12,ArrowUp:Math.PI/12,ArrowLeft:-Math.PI/12,ArrowDown:-Math.PI/12,PageUp:Math.PI/2,PageDown:-Math.PI/2,Enter:Math.PI/6,' ':Math.PI/6};if(keys[e.key]!==undefined){e.preventDefault();unlockMusic();turn(e.shiftKey?keys[e.key]/2:keys[e.key])}});
+$('step').addEventListener('click',()=>{unlockMusic();turn(Math.PI/6)});document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{endCrank();mode=button.dataset.mode;phase=0;document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));$('status').textContent=`${button.textContent.slice(5)} selected.`;turn(0)}));
+$('casing').addEventListener('click',()=>{opened=!opened;$('casing').setAttribute('aria-expanded',opened);$('casing').textContent=opened?'⊞ Close the casing':'⊞ Open the casing';requestRender(true)});
+canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();pauseMusic();$('fallback').style.display='block';$('fallback').textContent='The 3D view paused. Reload this local page to restore it.'});
+measureFit();resize();turn(0);
+</script></body></html>
