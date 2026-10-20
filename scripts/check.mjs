@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+import { Script } from 'node:vm';
+import assert from 'node:assert/strict';
+const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+assert.ok(scripts.length, 'Expected inline JavaScript');
+scripts.forEach(([, code], i) => new Script(code, { filename: `inline-${i}.js` }));
+assert.doesNotMatch(html, /<(?:script|link|img|iframe)\b[^>]*(?:src|href)\s*=\s*["'][^"'#]/i, 'External asset found');
+assert.doesNotMatch(html, /(?:fetch\s*\(|XMLHttpRequest|WebSocket|sendBeacon|https?:\/\/|\/Users\/|BEGIN [A-Z ]*PRIVATE KEY)/, 'Unexpected network call, URL or private path');
+assert.match(html, /getContext\(['"]webgl2['"]/);
+console.log('PASS: inline JavaScript syntax, self-contained assets, no network calls or private paths.');
